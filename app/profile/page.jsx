@@ -22,7 +22,7 @@ const MyProfile = () => {
     const hasConfirmed = confirm("Are you sure?");
     if (hasConfirmed) {
       try {
-        await fetch(`/api/prompt/${post._id.toString()}`, { method: "DELETE" });
+        await fetch(`/api/prompt/${post._id}`, { method: "DELETE" });
         const filteredPosts = posts.filter((p) => p._id !== post._id);
         setPosts(filteredPosts);
       } catch (err) {
@@ -36,7 +36,7 @@ const MyProfile = () => {
       desc="Welcome"
       data={posts}
       handleEdit={handleEdit}
-      handleDelte={handleDelete}
+      handleDelete={handleDelete}
     />
   );
 };
